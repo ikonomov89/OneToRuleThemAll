@@ -15,7 +15,7 @@ public class MusicRoom extends BaseEntity {
 
 
     @OneToMany(mappedBy = "musicRoom")
-    private List<Artist> artists;
+    private List<Musician> artists;
 
     @OneToOne(mappedBy = "musicRoom")
     private User user;

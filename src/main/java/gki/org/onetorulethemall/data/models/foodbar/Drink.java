@@ -12,8 +12,8 @@ public class Drink extends BaseEntity {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "counts")
-    private Integer count;
+    @Column(name = "quantities")
+    private Integer quantity;
 
     @Column(name = "liters")
     private Double liters;

@@ -5,7 +5,7 @@ import gki.org.onetorulethemall.data.models.BaseEntity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "artists")
+@Table(name = "musicians")
 public class Musician extends BaseEntity {
 
     @Column(name = "name")

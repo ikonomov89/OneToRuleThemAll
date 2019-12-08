@@ -4,18 +4,18 @@ import gki.org.onetorulethemall.data.models.BaseEntity;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "cards")
-public class Card extends BaseEntity {
+@Table
+@Entity(name = "bills")
+public class Bill extends BaseEntity {
 
     @Column(name = "name")
     private String name;
 
-    @Column(name = "type")
-    private String type;
+    @Column(name = "due")
+    private Integer due;
 
-    @Column(name = "amount")
-    private Integer amount;
+    @Column(name = "payment_date")
+    private String paymentDate;
 
     @ManyToOne
     @JoinColumn(name = "bank_it_id", referencedColumnName = "id")

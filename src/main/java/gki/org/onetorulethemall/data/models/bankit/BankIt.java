@@ -16,6 +16,9 @@ public class BankIt extends BaseEntity {
     @OneToMany(mappedBy = "bankIt")
     private List<Card> cards;
 
+    @OneToMany(mappedBy = "bankIt")
+    private List<Bill> bills;
+
     @OneToOne(mappedBy = "bankIt")
     private User user;
 

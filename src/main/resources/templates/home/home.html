@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>OneToRuleThemAll.com</title>
+    <link rel="stylesheet" type="text/css" href="/css/reset-css.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body>
+<div class="container-fluid">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand text-info h4" href="/">OneToRuleThemAll.com</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
+                <ul class="navbar-nav row w-25">
+                    <li class="nav-item col-md-4">
+                        <a href="../auth/register.html" class="nav-link text-info active h5">Register</a>
+                    </li>
+                    <li class="nav-item col-md-4">
+                        <a href="logout" class="nav-link text-info active h5">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <hr class="my-3"/>
+        <div class="text-center mb-3">
+            <h4 class="text-info">Welcome, $(username)</h4>
+            <h3>There is your's Applications to Rule</h3>
+        </div>
+        <hr class="my-3">
+        <div class="container">
+            <div class="row mb-4 d-flex justify-content-around">
+                <div class="col-md-3 d-flex flex-column text-center">
+                    <img src="img/musicroomicon.jpg" class="img-thumbnail" width="100" height="100">
+                    <h5 class="text-center">Music Room</h5>
+                    <a href="views/musicroom-home.html" class="btn btn-danger">Go to...</a>
+                </div>
+                <div class="col-md-3 d-flex flex-column text-center">
+                    <img src="img/moviehub.jpg" class="img-thumbnail" width="100" height="100">
+                    <h5 class="text-center">Movie Hub</h5>
+
+                    <a href="views/moviehub-home.html" class="btn btn-danger">Go to...</a>
+                </div>
+                <div class="col-md-3 d-flex flex-column text-center">
+                    <img src="img/friendzone.jpg" class="img-thumbnail" width="100" height="100">
+                    <h5 class="text-center">Friend's Zone</h5>
+
+                    <a href="/jobs/delete/?id=3" class="btn btn-danger">Go to...</a>
+                </div>
+            </div>
+            <div class="row mb-4 d-flex justify-content-around">
+                <div class="col-md-3 d-flex flex-column text-center">
+                    <img src="img/bankit.jpg" class="img-thumbnail" width="100" height="100">
+                    <h5 class="text-center">Bank It</h5>
+
+                    <a href="views/bankit-home.html" class="btn btn-danger">Go to...</a>
+                </div>
+                <div class="col-md-3 d-flex flex-column text-center">
+                    <img src="img/foodbar.jpg " class="img-thumbnail " width="100 " height="100 ">
+                    <h5 class="text-center ">Food Bar</h5>
+
+                    <a href="views/foodbar-home.html" class="btn btn-danger ">Go to...</a>
+                </div>
+            </div>
+        </div>
+        <hr class="my-3 "/>
+    </main>
+    <footer class="footer py-3 ">
+        <div class="container-fluid ">
+            <div class="text-muted container-fluid text-center ">&copy; CopyRight GKI Web Design Studios 2019. All
+                rights reserved.
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+
+</html>

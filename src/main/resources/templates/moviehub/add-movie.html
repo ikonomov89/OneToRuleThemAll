@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>OneToRuleThemAll.com</title>
+    <link rel="stylesheet" type="text/css" href="../css/reset-css.css">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+
+<body class="movie">
+    <div class="container-fluid">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand text-info h4" href="/">OneToRuleThemAll.com</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+                <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav row w-25">
+                        <li class="nav-item col-md-4">
+                            <a href="/" class="nav-link text-info active h5">Home</a>
+                        </li>
+                        <li class="nav-item col-md-4">
+                            <a href="add-movie.html" class="nav-link text-info active h5">Add Movie</a>
+                        </li>
+                        <li class="nav-item col-md-4">
+                            <a href="/logout" class="nav-link text-info active h5">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <hr class="my-3" />
+            <h1 class="text-center">Add Movie</h1>
+            <hr class="hr-3" />
+            <form class="mx-auto w-15" method="post" action="add-movie.html">
+                <div class="form-group">
+                    <div class="label-holder d-flex justify-content-center">
+                        <label for="name" class="h3 mb-2">Name</label>
+                    </div>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+                <div class="form-group">
+                    <div class="label-holder d-flex justify-content-center">
+                        <label for="genre" class="h3 mb-2">Genre</label>
+                    </div>
+                    <input type="text" class="form-control" id="genre" name="genre">
+                </div>
+
+                <div class="form-group">
+                    <div class="label-holder d-flex justify-content-center">
+                        <label for="trailer" class="h3 mb-2">Trailer link</label>
+                    </div>
+                    <textarea rows="4" class="form-control" id="trailer" name="trailer"></textarea>
+                </div>
+                <div class="button-holder d-flex justify-content-center">
+                    <button type="submit" class="btn btn-info text-white">Add</button>
+                </div>
+            </form>
+            <hr class="my-3">
+        </main>
+        <footer class="footer py-3">
+            <div class="container-fluid">
+                <div class="text-muted container-fluid text-center">&copy; CopyRight GKI Web Design Studios 2019. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

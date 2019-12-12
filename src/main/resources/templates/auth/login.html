@@ -1,67 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 
 <head>
-    <meta charset="UTF-8">
-    <title>OneToRuleThemAll.com</title>
-    <link rel="stylesheet" type="text/css" href="../css/reset-css.css">
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <th:block th:include="~{fragments/head}"></th:block>
 </head>
 
 <body>
-    <div class="container-fluid">
-        <header>
-            <nav class="navbar navbar-expand-lg navbar-light bg-sboj">
-                <a class="navbar-brand text-info h4" href="/">OneToRuleThemAll.com</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-                <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav row">
-                        <li class="nav-item col-md-4">
-                            <a href="../index.html" class="nav-link text-info active h5">Home</a>
-                        </li>
-                        <li class="nav-item col-md-4">
-                            <a href="login.html" class="nav-link text-info active h5">Login</a>
-                        </li>
-                        <li class="nav-item col-md-4">
-                            <a href="register.html" class="nav-link text-info active h5">Register</a>
-                        </li>
-                    </ul>
+<div class="container-fluid">
+    <header>
+        <th:block th:include="~{fragments/navbar}"></th:block>
+    </header>
+    <main>
+        <hr class="my-3"/>
+        <h1 class="text-center">Login</h1>
+        <hr class="hr-3"/>
+        <form class="mx-auto w-15" th:method="post" th:action="@{/auth/login}">
+            <div class="form-group">
+                <div class="label-holder d-flex justify-content-center">
+                    <label for="username" class="h3 mb-2">Username</label>
                 </div>
-            </nav>
-        </header>
-        <main>
-            <hr class="my-3" />
-            <h1 class="text-center">Login</h1>
-            <hr class="hr-3" />
-            <form class="mx-auto w-15" method="post" action="login.html">
-                <div class="form-group">
-                    <div class="label-holder d-flex justify-content-center">
-                        <label for="username" class="h3 mb-2">Username</label>
-                    </div>
-                    <input type="text" class="form-control" id="username" name="username">
-                </div>
-                <div class="form-group">
-                    <div class="label-holder d-flex justify-content-center">
-                        <label for="password" class="h3 mb-2">Password</label>
-                    </div>
-                    <input type="password" class="form-control" id="password" name="password">
-                </div>
-                <div class="button-holder d-flex justify-content-center">
-                    <button type="submit" class="btn btn-info text-white">Login</button>
-                </div>
-            </form>
-            <hr class="my-3">
-        </main>
-        <footer class="footer py-3">
-            <div class="container-fluid">
-                <div class="text-muted container-fluid text-center">&copy; CopyRight GKI Web Design Studios 2019. All rights reserved.
-                </div>
+                <input type="text" class="form-control" id="username" name="username">
             </div>
-        </footer>
-    </div>
+            <div class="form-group">
+                <div class="label-holder d-flex justify-content-center">
+                    <label for="password" class="h3 mb-2">Password</label>
+                </div>
+                <input type="password" class="form-control" id="password" name="password">
+            </div>
+            <div class="button-holder d-flex justify-content-center">
+                <button type="submit" class="btn btn-info text-white">Login</button>
+            </div>
+        </form>
+        <hr class="my-3">
+    </main>
+    <footer class="footer py-3">
+        <th:block th:include="~{fragments/footer}"></th:block>
+    </footer>
+</div>
 </body>
 
 </html>

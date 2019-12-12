@@ -1,20 +1,18 @@
-package gki.org.onetorulethemall.service.models;
+package gki.org.onetorulethemall.web.models.binding;
 
-import java.util.List;
-
-public class UserServiceModel extends BaseServiceModel {
+public class UserBindingModel {
 
     private String username;
 
     private String password;
 
+    private String confirmPassword;
+
     private String email;
 
     private String gender;
 
-    private List<RoleServiceModel> authorities;
-
-    public UserServiceModel() {
+    public UserBindingModel() {
     }
 
     public String getUsername() {
@@ -33,6 +31,14 @@ public class UserServiceModel extends BaseServiceModel {
         this.password = password;
     }
 
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -47,13 +53,5 @@ public class UserServiceModel extends BaseServiceModel {
 
     public void setGender(String gender) {
         this.gender = gender;
-    }
-
-    public List<RoleServiceModel> getAuthorities() {
-        return authorities;
-    }
-
-    public void setAuthorities(List<RoleServiceModel> authorities) {
-        this.authorities = authorities;
     }
 }

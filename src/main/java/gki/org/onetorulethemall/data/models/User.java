@@ -1,12 +1,15 @@
 package gki.org.onetorulethemall.data.models;
 
-import gki.org.onetorulethemall.data.models.bankit.BankIt;
-import gki.org.onetorulethemall.data.models.friendstar.Friendstar;
-import gki.org.onetorulethemall.data.models.moviehub.MovieHub;
-import gki.org.onetorulethemall.data.models.musicroom.MusicRoom;
+import gki.org.onetorulethemall.data.models.bankit.Bill;
+import gki.org.onetorulethemall.data.models.bankit.Card;
+import gki.org.onetorulethemall.data.models.foodbar.Drink;
+import gki.org.onetorulethemall.data.models.foodbar.Food;
+import gki.org.onetorulethemall.data.models.moviehub.Movie;
+import gki.org.onetorulethemall.data.models.musicroom.Musician;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -32,23 +35,79 @@ public class User extends BaseEntity implements UserDetails {
     )
     private List<Role> authorities;
 
-    @ManyToOne
-    @JoinColumn(name = "friends_star_id", referencedColumnName = "id")
-    private Friendstar friendstar;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Bill> bills;
 
-    @OneToOne
-    @JoinColumn(name = "bank_it_id", referencedColumnName = "id")
-    private BankIt bankIt;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Card> cards;
 
-    @OneToOne
-    @JoinColumn(name = "music_room_id", referencedColumnName = "id")
-    private MusicRoom musicRoom;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Drink> drinks;
 
-    @OneToOne
-    @JoinColumn(name = "movie_hub_id", referencedColumnName = "id")
-    private MovieHub movieHub;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Food> foods;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Movie> movies;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Musician> musicians;
 
     public User() {
+        this.musicians = new ArrayList<>();
+        this.movies = new ArrayList<>();
+        this.foods = new ArrayList<>();
+        this.drinks = new ArrayList<>();
+        this.cards = new ArrayList<>();
+        this.bills = new ArrayList<>();
+    }
+
+    public List<Bill> getBills() {
+        return bills;
+    }
+
+    public void setBills(List<Bill> bills) {
+        this.bills = bills;
+    }
+
+    public List<Card> getCards() {
+        return cards;
+    }
+
+    public void setCards(List<Card> cards) {
+        this.cards = cards;
+    }
+
+    public List<Drink> getDrinks() {
+        return drinks;
+    }
+
+    public void setDrinks(List<Drink> drinks) {
+        this.drinks = drinks;
+    }
+
+    public List<Food> getFoods() {
+        return foods;
+    }
+
+    public void setFoods(List<Food> foods) {
+        this.foods = foods;
+    }
+
+    public List<Movie> getMovies() {
+        return movies;
+    }
+
+    public void setMovies(List<Movie> movies) {
+        this.movies = movies;
+    }
+
+    public List<Musician> getMusicians() {
+        return musicians;
+    }
+
+    public void setMusicians(List<Musician> musicians) {
+        this.musicians = musicians;
     }
 
     @Override
@@ -107,37 +166,6 @@ public class User extends BaseEntity implements UserDetails {
         this.gender = gender;
     }
 
-    public Friendstar getFriendstar() {
-        return friendstar;
-    }
-
-    public void setFriendstar(Friendstar friendstar) {
-        this.friendstar = friendstar;
-    }
-
-    public BankIt getBankIt() {
-        return bankIt;
-    }
-
-    public void setBankIt(BankIt bankIt) {
-        this.bankIt = bankIt;
-    }
-
-    public MusicRoom getMusicRoom() {
-        return musicRoom;
-    }
-
-    public void setMusicRoom(MusicRoom musicRoom) {
-        this.musicRoom = musicRoom;
-    }
-
-    public MovieHub getMovieHub() {
-        return movieHub;
-    }
-
-    public void setMovieHub(MovieHub movieHub) {
-        this.movieHub = movieHub;
-    }
 
     @Override
     public List<Role> getAuthorities() {

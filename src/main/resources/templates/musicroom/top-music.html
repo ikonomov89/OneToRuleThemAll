@@ -1,98 +1,133 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
-    <meta charset="UTF-8">
-    <title>OneToRuleThemAll.com</title>
-    <link rel="stylesheet" type="text/css" href="../css/reset-css.css">
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <th:block th:include="~{fragments/head}"></th:block>
 </head>
 
 <body class="music">
-    <div class="container-fluid">
-        <header>
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand text-info h4" href="/">OneToRuleThemAll.com</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-                <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav row w-25">
-                        <li class="nav-item col-md-4">
-                            <a href="home.html" class="nav-link text-info active h5">Home</a>
-                        </li>
-                        <li class="nav-item col-md-4">
-                            <a href="add-music.html" class="nav-link text-info active h5">Add Music</a>
-                        </li>
-                        <li class="nav-item col-md-4">
-                            <a href="/logout" class="nav-link text-info active h5">Logout</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <main>
-            <hr class="my-3" />
-            <div class="text-center mb-3">
-                <h3>Top 5 in the Music Charts</h3>
-            </div>
-            <hr class="my-3">
-            <div class="container">
-                <div class="row mb-4 d-flex justify-content-around">
-                    <div class="col-md-3 d-flex flex-column text-center">
+<div class="container-fluid">
+    <header>
+        <th:block th:include="~{fragments/navbar-musicroom}"></th:block>
+    </header>
+    <main>
+        <hr class="my-3"/>
+        <div class="text-center mb-3">
+            <h3>Top 5 in the Music Charts</h3>
+        </div>
+        <hr class="my-3">
+        <div class="container">
+            <div class="row mb-4 d-flex justify-content-around">
+                <div class="col-md-3 d-flex flex-column text-center">
+
+                    <form th:action="@{/musicroom/top-music}" th:method="post">
                         <img src="../img/halsey.jpg" class="img-thumbnail" width="200" height="200">
-                        <h5 class="text-center">Halsey - "Closer"</h5>
+                        <div>
+                            <label for="name" class="top-add">Halsey</label>
+                            <input type="hidden" name="name" value="Halsey"/>
+                        </div>
+                        <div>
+                            <label for="song" class="top-add">Closer</label>
+                            <input type="hidden" name="song" value="Closer"/>
+                        </div>
                         <a href="https://youtu.be/0zGcUoRlhmw" class="btn btn-danger">View the video</a>
-                        <div class="button-holder d-flex justify-content-center">
-                            <button type="submit" class="btn btn-info text-white">Add to My Music</button>
-                        </div>
-                    </div>
-                    <div class="col-md-3 d-flex flex-column text-center">
+                        <input type="hidden" name="link" value="https://youtu.be/0zGcUoRlhmw"/>
+                        <button type="submit" value="Submit" class="btn btn-info text-white">Add to My Music</button>
+                    </form>
+
+                </div>
+                <div class="col-md-3 d-flex flex-column text-center">
+
+                    <form th:action="@{/musicroom/top-music}" th:method="post">
                         <img src="../img/ladygaga.jpg" class="img-thumbnail" width="200" height="200">
-                        <h5 class="text-center">Lady Gaga ft Bradly Cooper - "Shallow"</h5>
+                        <div>
+                            <label for="name" class="top-add">Lady Gaga</label>
+                            <input type="hidden" name="name" value="Lady Gaga"/>
+                        </div>
+                        <div>
+                            <label for="song" class="top-add">Shallow</label>
+                            <input type="hidden" name="song" value="Shallow"/>
+                        </div>
                         <a href="https://youtu.be/bo_efYhYU2A" class="btn btn-danger">View the video</a>
-                        <div class="button-holder d-flex justify-content-center">
-                            <button type="submit" class="btn btn-info text-white">Add to My Music</button>
-                        </div>
-                    </div>
-                    <div class="col-md-3 d-flex flex-column text-center">
+                        <input type="hidden" name="link" value="https://youtu.be/bo_efYhYU2A"/>
+                        <button type="submit" value="Submit" class="btn btn-info text-white">Add to My Music</button>
+                    </form>
+
+                </div>
+                <div class="col-md-3 d-flex flex-column text-center">
+
+                    <form th:action="@{/musicroom/top-music}" th:method="post">
                         <img src="../img/edsheeran.jpg" class="img-thumbnail" width="200" height="200">
-                        <h5 class="text-center">Ed Sheeran - "Shape of you"</h5>
+                        <div>
+                            <label for="name" class="top-add">Ed Sheeran</label>
+                            <input type="hidden" name="name" value="Ed Sheeran"/>
+                        </div>
+                        <div>
+                            <label for="song" class="top-add">Shape of you</label>
+                            <input type="hidden" name="song" id="song" value="Shape of you"/>
+                        </div>
                         <a href="https://youtu.be/JGwWNGJdvx8" class="btn btn-danger">View the video</a>
-                        <div class="button-holder d-flex justify-content-center">
-                            <button type="submit" class="btn btn-info text-white">Add to My Music</button>
-                        </div>
-                    </div>
+                        <input type="hidden" name="link" value="https://youtu.be/JGwWNGJdvx8"/>
+                        <button type="submit" value="Submit" class="btn btn-info text-white">Add to My Music</button>
+                    </form>
+
                 </div>
-                <div class="row mb-4 d-flex justify-content-around">
-                    <div class="col-md-3 d-flex flex-column text-center">
+            </div>
+            <div class="row mb-4 d-flex justify-content-around">
+                <div class="col-md-3 d-flex flex-column text-center">
+
+                    <form th:action="@{/musicroom/top-music}" th:method="post">
                         <img src="../img/eminem.jpg" class="img-thumbnail" width="200" height="200">
-                        <h5 class="text-center">Eminem - "Not Afraid"</h5>
+                        <div>
+                            <label for="name" class="top-add">Eminem</label>
+                            <input type="hidden" name="name" id="name" value="Ed Eminem"/>
+                        </div>
+                        <div>
+                            <label for="song" class="top-add">Not Afraid</label>
+                            <input type="hidden" name="song" value="Not Afraid"/>
+                        </div>
                         <a href="https://youtu.be/j5-yKhDd64s" class="btn btn-danger">View the video</a>
-                        <div class="button-holder d-flex justify-content-center">
-                            <button type="submit" class="btn btn-info text-white">Add to My Music</button>
-                        </div>
-                    </div>
-                    <div class="col-md-3 d-flex flex-column text-center">
+                        <input type="hidden" name="link" value="https://youtu.be/j5-yKhDd64s"/>
+                        <button type="submit" value="Submit" class="btn btn-info text-white">Add to My Music</button>
+                    </form>
+
+                </div>
+                <div class="col-md-3 d-flex flex-column text-center">
+
+                    <form th:action="@{/musicroom/top-music}" th:method="post">
                         <img src="../img/imaginedragons.jpg" class="img-thumbnail" width="200" height="200">
-                        <h5 class="text-center">Imagine Dragons - "Thunder"</h5>
-                        <a href="https://youtu.be/fKopy74weus" class="btn btn-danger">View the video</a>
-                        <div class="button-holder d-flex justify-content-center">
-                            <button type="submit" class="btn btn-info text-white">Add to My Music</button>
+                        <div>
+                            <label for="name" class="top-add">Imagine Dragons</label>
+                            <input type="hidden" name="name" value="Ed Imagine Dragons"/>
                         </div>
-                    </div>
+                        <div>
+                            <label for="song" class="top-add">Thunder</label>
+                            <input type="hidden" name="song" value="Thunder"/>
+                        </div>
+                        <a href="https://youtu.be/fKopy74weus" class="btn btn-danger">View the video</a>
+                        <input type="hidden" name="link" value="https://youtu.be/fKopy74weus"/>
+                        <button type="submit" value="Submit" class="btn btn-info text-white">Add to My Music</button>
+                    </form>
+
                 </div>
+                <!--<div class="col-md-3 d-flex flex-column text-center">-->
+                <!--<img src="../img/imaginedragons.jpg" class="img-thumbnail" width="200" height="200">-->
+                <!--<h5 class="text-center">Imagine Dragons - "Thunder"</h5>-->
+                <!--<a href="https://youtu.be/fKopy74weus" class="btn btn-danger">View the video</a>-->
+                <!--<div class="button-holder d-flex justify-content-center">-->
+                <!--<button type="submit" class="btn btn-info text-white">Add to My Music</button>-->
+                <!--</div>-->
+                <!--</div>-->
             </div>
-            <hr class="my-3 " />
-        </main>
-        <footer class="footer py-3 ">
-            <div class="container-fluid ">
-                <div class="text-muted container-fluid text-center ">&copy; CopyRight GKI Web Design Studios 2019. All rights reserved.
-                </div>
-            </div>
-        </footer>
-    </div>
+        </div>
+        <hr class="my-3 "/>
+    </main>
+    <footer class="footer py-3">
+        <th:block th:include="~{fragments/footer}"></th:block>
+    </footer>
+</div>
 </body>
 
 </html>

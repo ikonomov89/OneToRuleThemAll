@@ -1,32 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
-    <title>OneToRuleThemAll.com</title>
-    <link rel="stylesheet" type="text/css" href="../css/reset-css.css">
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <th:block th:include="~{fragments/head}"></th:block>
 </head>
+
 
 <body class="food">
 <div class="container-fluid">
-    <nav class="navbar navbar-expand-lg navbar-background">
-        <a class="nav-link text-info active h5" href="index.html">OneToRuleThemAll.com</a>
-        <div class="collapse navbar-collapse d-flex justify-content-end">
-            <ul class="navbar-nav row">
-                <li class="nav-item col-md-4">
-                    <a class="nav-link text-info active font-weight-bold h5" href="home.html">Home</a>
-                </li>
-                <li class="nav-item col-md-4">
-                    <a class="nav-link text-info active font-weight-bold h5" href="add-drink.html">Add Drink</a>
-                </li>
-                <li class="nav-item col-md-4">
-                    <a class="nav-link text-info active font-weight-bold h5" href="add-food.html">Add Food</a>
-                </li>
-
-            </ul>
-        </div>
-    </nav>
+    <header>
+        <th:block th:include="~{fragments/navbar-foodbar}"></th:block>
+    </header>
     <h2 class="text-center text-white mt-5">You Ordered...</h2>
     <hr style="width: 50%"/>
     <div class='row mb-4 d-flex justify-content-around'>
@@ -48,14 +33,9 @@
         </div>
     </div>
 </div>
-</div>
 </body>
 <footer class="footer py-3">
-    <div class="container-fluid">
-        <div class="text-muted container-fluid text-center">&copy; CopyRight GKI Web Design Studios 2019. All rights
-            reserved.
-        </div>
-    </div>
+    <th:block th:include="~{fragments/footer}"></th:block>
 </footer>
 
 </html>

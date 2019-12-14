@@ -1,46 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
-    <title>OneToRuleThemAll.com</title>
-    <link rel="stylesheet" type="text/css" href="../css/reset-css.css">
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <th:block th:include="~{fragments/head}"></th:block>
 </head>
 
 <body class="music">
 <div class="container-fluid">
-    <nav class="navbar navbar-expand-lg navbar-background">
-        <a class="nav-link text-white active h5" href="index.html">OneToRuleThemAll.com</a>
-        <div class="collapse navbar-collapse d-flex justify-content-end">
-            <ul class="navbar-nav row">
-                <li class="nav-item col-md-4">
-                    <a class="nav-link text-white active font-weight-bold" href="home.html">Home</a>
-                </li>
-                <li class="nav-item col-md-4">
-                    <a class="nav-link text-white active font-weight-bold" href="add-music.html">Add Music</a>
-                </li>
-                <li class="nav-item col-md-4">
-                    <a class="nav-link text-white active font-weight-bold" href="/logout">Logout</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+
+    <th:block th:include="~{fragments/navbar-musicroom}"></th:block>
     <h2 class="text-center text-white mt-5">My Music is ...</h2>
-    <hr style="width: 50%"/>
-    <div class='row mb-4 d-flex justify-content-around'>
-        <div class="col-md-4 d-flex flex-column bg-text mb-3">
-            <h2>Name: ...</h2>
-            <h2>Genre: ....</h2>
-            <h4>Favorite songs: ...</h4>
-        </div>
-        <div class="col-md-4 d-flex flex-column bg-text mb-3">
-            <h2>Name: ...</h2>
-            <h2>Genre: ....</h2>
-            <h4>Favorite songs: ...</h4>
-        </div>
+    <div style="align-content: center">
+        <table class="flat-table">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Song</th>
+                <th>Link</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="musician, iter : ${musicians}">
+                <tr>
+                    <th th:utext="${iter.index + 1}"></th>
+                    <td th:utext="${musician.name}"></td>
+                    <td th:utext="${musician.song}"></td>
+                    <td th:utext="${musician.link}"></td>
+                    <td>
+                        <form th:action="@{/musicroom/delete/{id}(id=${musician.id})}" method="post"
+                              th:object="${musician}">
+                            <!--<input type="hidden" th:field="${musician.id}"/>-->
+                            <button type="submit" value="Submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                    <!--<td><a th:href="@{/musicroom/delete/{id}(id=${musician.id})}"-->
+                    <!--class="btn btn-danger glow-button font-weight-bold text-white">Delete</a></td>-->
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
     </div>
+
 </div>
 </body>
-
+<th:block th:include="~{fragments/footer}"></th:block>
 </html>

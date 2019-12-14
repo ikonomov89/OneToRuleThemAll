@@ -65,6 +65,7 @@ h2,
 h3,
 h4,
 h5,
+.top-add,
 p {
     /* color: white;
     text-shadow: white 0px 0px 10px; */
@@ -113,3 +114,29 @@ img {
 .app-color {
     color: yellow;
 }
+
+.flat-table {
+    /*display: block;*/
+    font-family: cursive;
+    -webkit-font-smoothing: antialiased;
+    font-size: 115%;
+    overflow: auto;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th {
+    background-color: rgb(196, 0, 17);
+    color: white;
+    font-weight: normal;
+    padding: 20px 30px;
+    text-align: center;
+}
+
+td {
+    background-color: rgb(238, 238, 238);
+    color: rgb(111, 111, 111);
+    padding: 20px 30px;
+}
+

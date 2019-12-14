@@ -6,4 +6,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 public interface UserService extends UserDetailsService {
 
     UserServiceModel registerUser(UserServiceModel user);
+
+    void addProperty(Object o, String username);
+
+    UserServiceModel findByUsername(String username);
 }

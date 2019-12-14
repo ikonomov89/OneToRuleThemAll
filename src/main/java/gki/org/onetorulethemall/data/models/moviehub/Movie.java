@@ -1,6 +1,7 @@
 package gki.org.onetorulethemall.data.models.moviehub;
 
 import gki.org.onetorulethemall.data.models.BaseEntity;
+import gki.org.onetorulethemall.data.models.User;
 
 import javax.persistence.*;
 
@@ -18,7 +19,41 @@ public class Movie extends BaseEntity {
     private String trailer;
 
     @ManyToOne
-    @JoinColumn(name = "movie_hub_id", referencedColumnName = "id")
-    private MovieHub movieHub;
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
 
+    public Movie() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public String getTrailer() {
+        return trailer;
+    }
+
+    public void setTrailer(String trailer) {
+        this.trailer = trailer;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

@@ -1,0 +1,22 @@
+<th:block sec:authorize="isAuthenticated()">
+    <nav class="jumbotron-fluid navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand text-info h4" th:href="@{/home}">OneToRuleThemAll.com</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarAuth"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarAuth">
+            <ul class="navbar-nav row">
+                <li class="nav-item col-md-4">
+                    <a th:href="@{/home}" class="nav-link text-info active h5">Home</a>
+                </li>
+                <li class="nav-item col-md-4">
+                    <a th:href="@{/musicroom/add-music}" class="nav-link text-info active h5">Add Musician</a>
+                </li>
+                <li class="nav-item col-md-4">
+                    <a th:href="@{/musicroom/musicroom-home}" class="nav-link text-info active h5">Music Room</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</th:block>

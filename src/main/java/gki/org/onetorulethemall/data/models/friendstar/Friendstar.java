@@ -14,8 +14,4 @@ import java.util.List;
 public class Friendstar extends BaseEntity {
 
 
-    @Column(name = "friends")
-    @OneToMany(mappedBy = "friendstar")
-    private List<User> friends;
-
 }

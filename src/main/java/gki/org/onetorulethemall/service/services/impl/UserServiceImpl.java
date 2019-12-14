@@ -1,6 +1,7 @@
 package gki.org.onetorulethemall.service.services.impl;
 
 import gki.org.onetorulethemall.data.models.User;
+import gki.org.onetorulethemall.data.models.musicroom.Musician;
 import gki.org.onetorulethemall.data.repositories.UserRepository;
 import gki.org.onetorulethemall.service.models.UserServiceModel;
 import gki.org.onetorulethemall.service.services.RoleService;
@@ -13,6 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.LinkedList;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -46,6 +48,21 @@ public class UserServiceImpl implements UserService {
         user.setPassword(this.bCryptPasswordEncoder.encode(userServiceModel.getPassword()));
 
         return this.modelMapper.map(this.userRepository.saveAndFlush(user), UserServiceModel.class);
+    }
+
+    @Override
+    public void addProperty(Object o, String username) {
+        User user = this.userRepository.findByUsername(username).orElseThrow(() -> new IllegalArgumentException("Not found!"));
+        List<Musician> musicians = user.getMusicians();
+        musicians.add(this.modelMapper.map(o, Musician.class));
+
+    }
+
+    @Override
+    public UserServiceModel findByUsername(String username) {
+        User user = this.userRepository.findByUsername(username).orElseThrow();
+
+        return this.modelMapper.map(user, UserServiceModel.class);
     }
 
     @Override
